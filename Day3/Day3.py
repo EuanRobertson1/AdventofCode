@@ -48,7 +48,41 @@ def part1():
 
     return sum      
         
+def part2():
+    #declare varibles
+    sum = 0
+    i = 0
+    content = readFromFile()
+    
+    
+    
+    #loop to end of file
+    while i < len(content):
+        #store next 3 lines into dictionaries
+        l1 = Counter(content[i])
+        i+=1
+        l2 = Counter(content[i])
+        i+=1
+        l3 = Counter(content[i])
         
+        #combined dictionary
+        combinedD = l1 & l2 & l3
+        #list of shared elements
+        shared = list(combinedD.elements())
+    
+        #get priority of shared element via index of letters array
+        index = lettersArr.index(shared[0])   
+        
+        #add to sum (and add 1 to compensate for array indexes starting at 0)
+        index+=1
+        sum+= index
+        
+        #add to counter
+        i+=1
+
+    return sum  
+
+
 
             
 
@@ -60,7 +94,8 @@ def part1():
 
 
 
-
+p2 = part2()
 p1 = part1()
 
 print("Sum of part 1 is: " + str(p1))
+print("sum of part 2 is: " + str(p2))  
