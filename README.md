@@ -1,2 +1,2 @@
-# AofC_2023
+# Advent of Code
  My Solutions for Advent of Code 
