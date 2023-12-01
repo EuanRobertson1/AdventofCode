@@ -11,7 +11,7 @@ stringNums = ["one","two","three","four","five","six","seven","eight","nine"]
 stringNumChecker = ""
 
 #file handling
-file = open('Day1/input.txt')
+file = open('2023/Day1/input.txt')
 fileCont = file.readlines()
 
 #loop to end

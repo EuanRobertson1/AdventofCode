@@ -8,7 +8,7 @@ fullNum = ""
 
 
 #file handling
-file = open('Day1/input.txt')
+file = open('2023/Day1/input.txt')
 fileCont = file.readlines()
 
 #loop to end
