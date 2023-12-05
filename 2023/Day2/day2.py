@@ -2,8 +2,9 @@ import re
 curLn = 0
 values = [12,13,14]
 colors = ['red','green','blue']
-sum = 0
 
+sum = 0
+sum2 = 0
 
 #file handling
 file = open('2023/Day2/input.txt')
@@ -12,7 +13,8 @@ fileCont = file.readlines()
 #loop to end
 while curLn < len(fileCont):
     possible = True
-    
+    biggestColours = [0,0,0]
+
 
     #get line content
     lineCont = re.split(';|,|:', fileCont[curLn])
@@ -32,6 +34,11 @@ while curLn < len(fileCont):
                 colorIndex = x
                 #get the int value 
                 n = int(''.join(re.findall(r'\b\d+\b',lineCont[i])))
+
+                #update largest colour cube
+                if n > biggestColours[x]:
+                    biggestColours[x] = n
+                
                 
                 #check if number is possible
                 if n <= values[x]:
@@ -45,6 +52,8 @@ while curLn < len(fileCont):
         i+=1        
 
     
+    sum2 += biggestColours[0] * biggestColours[1] * biggestColours [2]
+
     if(possible):
         sum+=curGame   
         print("Overall Game:", curGame, "is possible")   
@@ -58,3 +67,4 @@ while curLn < len(fileCont):
 file.close()
 
 print("Sum of all values is ",sum)
+print(sum2)
